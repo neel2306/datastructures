@@ -13,8 +13,12 @@ class Stack:
     def pop(self) -> Any:
 
         # Remove the last element
-        popped_element = self.array.pop()
-        print(f"Removed element {popped_element}, stack now has {len(self.array)} elements")
+        if self.array:
+            popped_element = self.array.pop()
+            print(f"Removed element {popped_element}, stack now has {len(self.array)} elements")
+        
+        else:
+            raise ValueError("The stack is currently empty!")
     
     def peek(self) -> Any:
         # To view the last element of a stack
@@ -24,6 +28,12 @@ class Stack:
         
         else:
             raise ValueError("The stack is currently empty!")
+    
+    def clearStack(self) -> None:
+        self.array = []
+    
+    def viewStack(self) -> None:
+        print(self.array)
 
 if __name__ == "__main__":
     stack = Stack()
